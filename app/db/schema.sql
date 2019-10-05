@@ -4,9 +4,9 @@ CREATE DATABASE Burger_db;
 
 use Burger_db;
 
-create table burgers{
+create table burgers(
     id int auto_increment,
     burger_name varchar(100) not null,
-    devoured boolean
+    devoured boolean,
     primary key (id)
-}
+)
