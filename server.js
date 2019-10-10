@@ -1,5 +1,5 @@
 var express = require("express");
-var path = require('path')
+var path = require('path');
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -14,7 +14,7 @@ app.set('index', path.join(__dirname, 'views'));
 app.engine("handlebars", exphbrs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-var routes = require("./app/controllers/burger_controller.js");
+var routes = require("./controllers/burger_controller.js");
 
 app.use('/', routes);
 

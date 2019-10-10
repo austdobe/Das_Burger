@@ -10,9 +10,14 @@ var burger = require("../models/burger.js");
             var dbData = {
                 burgers: data
             };
-            console.log(dbData.burgers);
-            res.render("index", dbData.burgers);
+            console.log(dbData);
+            res.render("index", dbData);
         }); 
+    });
+    router.post("/api/burgers", function(req, res){
+        burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result){
+            res.json({ id: result.insertId });
+        })
     });
 
 

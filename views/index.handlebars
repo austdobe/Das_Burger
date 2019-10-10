@@ -1,0 +1,38 @@
+<div class="row">    
+    <section class="col-12">
+        <h1 class="text-center">Burgers</h1>
+        <img class="topImage" src="/assets/img/burger.jpg" style="max-width: 200px">
+    </section>
+</div>
+<div class="row">    
+    <section class="col-6">
+        <h2 class="text-center">Burgers not devoured</h2>
+        <ul>
+            {{#each burgers}}
+                {{#unless devoured}}
+                    <div class="row">
+                        <div class="card col-7">
+                            <span class="text-center">{{this.burger_name}}</span>
+                        </div>
+                        <button href="/eat" type="button" id="devour" class="btn-primary col-4">Eat it</button>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </section>
+    
+    <section class="col-6 burgerContainer">
+        <h2 class="text-center">Burgers devoured</h2>
+        <ul class="row">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div class="col-12 text-center">
+                        <div class="card devoured">
+                            <span class="text-center">{{this.burger_name}}</span>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </section>
+</div>
