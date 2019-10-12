@@ -8,6 +8,13 @@ var burger = {
         });
 
     },
+    insertOne: function(table, vals, cb){
+        orm.insertOne("burgers", vals, function(res){
+            console.log("Burger vals "+ vals);
+            cb(res);
+        });
+        
+    }
 };
 
 module.exports = burger;

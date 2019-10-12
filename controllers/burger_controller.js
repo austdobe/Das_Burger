@@ -15,9 +15,9 @@ var burger = require("../models/burger.js");
         }); 
     });
     router.post("/api/burgers", function(req, res){
-        burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result){
-            res.json({ id: result.insertId });
-        })
+        burger.insertOne(["burger_name"], [req.body.burger], function(result){
+            res.end();
+        });
     });
 
 

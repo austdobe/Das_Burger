@@ -34,21 +34,23 @@ var orm = {
         });
     },
 
-    insertOne: function(table, col, vals, cb){
-        var query = "Insert into " + table;
-        query += " (";
-        query += cols.toString();
-        query += ") ";
-        query += "VALUES (";
-        query += qMarks(vals.length);
-        query += ") ";
-        console.log(query);
+    insertOne: function(table, vals, cb){
+        var query = "Insert into " + table + " (burger_name) values (?) ";
+        
+        console.log("Query " + query);
+        // console.log("table " + table);
+        // console.log(cols.toString());
+        console.log("vals "+ vals);
+        console.log("call back " +cb);
+        
 
-        connection.query(query, vals, function(err, result){
+        connection.query(query, [vals], function(err, result){
+            console.log("call back 2" + cb);
             if(err){
                 throw err;
             }
-        })
+            cb(result);
+        });
     }
 };
 
